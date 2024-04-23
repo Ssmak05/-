@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table width="80%" align="center" border="1">
+    <tr><td> Ячейка 1 </td></tr>
+    <tr><td width="30%">2</td>
+        <td width="50%" >3</td>
+                {% for question in latest_question_list %}
+                        <br>
+                    <a href="/polls/{{ question.id }}/">{{ question.question_text }}</a>
+                 {% endfor %}
+            <br>
+        </td>
+        <td width="20%">5</td>
+    </tr>
+    <tr>
+        <td colspan="3">Ячейка 1</td>
+    </tr>
+</table>
+
+
+
+
+
+
+
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+</body>
+</html>
+
+
+
+
+
